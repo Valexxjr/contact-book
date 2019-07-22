@@ -22,7 +22,8 @@ public class DAOContactImpl implements DAOContact {
 
     private static final String GET_CONTACTS_SHORT_SQL = "select id, first_name, last_name, patronymic, birth_date, " +
             "place_of_work, country, city, street, email from contact order by id";
-
+    private static final String GET_CONTACTS_SHORT_SQL_WITHOUT_ORDER = "select id, first_name, last_name, patronymic, birth_date, " +
+            "place_of_work, country, city, street, email from contact";
     private static final String GET_CONTACT_BY_ID_SQL = "select id, first_name, last_name, " +
             "patronymic, birth_date, gender, marital_status, citizenship, " +
             "website, email, place_of_work, country, city, street, zip_code, image from contact where id = ?";
@@ -349,17 +350,17 @@ public class DAOContactImpl implements DAOContact {
         try {
             connection = dataSource.getConnection();
             statement = connection.createStatement();
-            StringBuilder query = new StringBuilder(GET_CONTACTS_SHORT_SQL);
+            StringBuilder query = new StringBuilder(GET_CONTACTS_SHORT_SQL_WITHOUT_ORDER);
 
             List<String> conditions = new ArrayList<>();
             if(searchParameters.getFirstName() != null) {
-                conditions.add(" first_name like '" + searchParameters.getFirstName() + "' ");
+                conditions.add(" first_name like '%" + searchParameters.getFirstName() + "%' ");
             }
             if(searchParameters.getLastName() != null) {
-                conditions.add(" last_name like '" + searchParameters.getLastName() + "' ");
+                conditions.add(" last_name like '%" + searchParameters.getLastName() + "%' ");
             }
             if(searchParameters.getPatronymic() != null) {
-                conditions.add(" patronymic like '" + searchParameters.getPatronymic() + "' ");
+                conditions.add(" patronymic like '%" + searchParameters.getPatronymic() + "%' ");
             }
             if(searchParameters.getDateFrom() != null) {
                 conditions.add(" birth_date >= '" + searchParameters.getDateFrom().toString() + "' ");
@@ -374,19 +375,19 @@ public class DAOContactImpl implements DAOContact {
                 conditions.add(" marital_status = '" + searchParameters.getMaritalStatus().toString().toLowerCase() + "' ");
             }
             if(searchParameters.getCitizenship() != null) {
-                conditions.add(" citizenship like '" + searchParameters.getCitizenship() + "' ");
+                conditions.add(" citizenship like '%" + searchParameters.getCitizenship() + "%' ");
             }
             if(searchParameters.getCountry() != null) {
-                conditions.add(" country like '" + searchParameters.getCountry() + "' ");
+                conditions.add(" country like '%" + searchParameters.getCountry() + "%' ");
             }
             if(searchParameters.getCity() != null) {
-                conditions.add(" city like '" + searchParameters.getCity() + "' ");
+                conditions.add(" city like '%" + searchParameters.getCity() + "%' ");
             }
             if(searchParameters.getStreet() != null) {
-                conditions.add(" street like '" + searchParameters.getStreet() + "' ");
+                conditions.add(" street like '%" + searchParameters.getStreet() + "%' ");
             }
             if(searchParameters.getZipCode() != null) {
-                conditions.add(" zip_code like '" + searchParameters.getZipCode() + "' ");
+                conditions.add(" zip_code like '%" + searchParameters.getZipCode() + "%' ");
             }
             String searchQuery;
             if(!conditions.isEmpty()) {
@@ -397,7 +398,7 @@ public class DAOContactImpl implements DAOContact {
                 searchQuery = query.substring(0, query.length() - 3);
             } else
                 searchQuery = query.toString();
-            ResultSet rs = statement.executeQuery(searchQuery  + " limit " + (page - 1) * 10 + ", 10");
+            ResultSet rs = statement.executeQuery(searchQuery  + " order by id limit " + (page - 1) * 10 + ", 10");
             contacts = new ArrayList<ContactWrapper>();
             while (rs.next()) {
                 ContactWrapper contactWrapper = new ContactWrapper();
@@ -444,13 +445,13 @@ public class DAOContactImpl implements DAOContact {
 
             List<String> conditions = new ArrayList<>();
             if(searchParameters.getFirstName() != null) {
-                conditions.add(" first_name like '" + searchParameters.getFirstName() + "' ");
+                conditions.add(" first_name like '%" + searchParameters.getFirstName() + "%' ");
             }
             if(searchParameters.getLastName() != null) {
-                conditions.add(" last_name like '" + searchParameters.getLastName() + "' ");
+                conditions.add(" last_name like '%" + searchParameters.getLastName() + "%' ");
             }
             if(searchParameters.getPatronymic() != null) {
-                conditions.add(" patronymic like '" + searchParameters.getPatronymic() + "' ");
+                conditions.add(" patronymic like '%" + searchParameters.getPatronymic() + "%' ");
             }
             if(searchParameters.getDateFrom() != null) {
                 conditions.add(" birth_date >= '" + searchParameters.getDateFrom().toString() + "' ");
@@ -465,19 +466,19 @@ public class DAOContactImpl implements DAOContact {
                 conditions.add(" marital_status = '" + searchParameters.getMaritalStatus().toString().toLowerCase() + "' ");
             }
             if(searchParameters.getCitizenship() != null) {
-                conditions.add(" citizenship like '" + searchParameters.getCitizenship() + "' ");
+                conditions.add(" citizenship like '%" + searchParameters.getCitizenship() + "%' ");
             }
             if(searchParameters.getCountry() != null) {
-                conditions.add(" country like '" + searchParameters.getCountry() + "' ");
+                conditions.add(" country like '%" + searchParameters.getCountry() + "%' ");
             }
             if(searchParameters.getCity() != null) {
-                conditions.add(" city like '" + searchParameters.getCity() + "' ");
+                conditions.add(" city like '%" + searchParameters.getCity() + "%' ");
             }
             if(searchParameters.getStreet() != null) {
-                conditions.add(" street like '" + searchParameters.getStreet() + "' ");
+                conditions.add(" street like '%" + searchParameters.getStreet() + "%' ");
             }
             if(searchParameters.getZipCode() != null) {
-                conditions.add(" zip_code like '" + searchParameters.getZipCode() + "' ");
+                conditions.add(" zip_code like '%" + searchParameters.getZipCode() + "%' ");
             }
 
             String searchQuery;
