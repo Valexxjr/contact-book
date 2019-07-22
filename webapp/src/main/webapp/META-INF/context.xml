@@ -1,0 +1,6 @@
+<Context docBase="/server/file_storage/images" path="/images">
+    <Resource name="jdbc/ContactDB" auth="Container" type="javax.sql.DataSource"
+              maxActive="100" maxIdle="30" maxWait="10000"
+              username="alex" password="itech" driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/contacts?useUnicode=true&amp;characterEncoding=Cp1251"/>
+</Context>

@@ -1,0 +1,54 @@
+<div class="container">
+    <h1 class="text-center">Contacts</h1>
+    <button id="send_email" class="btn btn-warning">Send email</button>
+    <button class="btn btn-danger pull-right" id="delete_contact">Delete</button>
+
+    <div class="table-responsive">
+        <table class="table table-hover" id="table_contact">
+            <thead>
+            <tr class="active">
+                <th>Check</th>
+                <th class="d-none">Id</th>
+                <th>Name</th>
+                <th>Date of Birth</th>
+                <th>Address</th>
+                <th>Place of Work</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {{#.}}
+            <tr>
+                <td><input class="checkbox" type="checkbox"></td>
+                <td class="d-none">{{id}}</td>
+                <td><a>{{lastName}} {{firstName}} {{patronymic}}</a></td>
+                <td>{{#birthdayDate}}
+                    {{birthdayDate}}
+                    {{/birthdayDate}}
+                    {{^birthdayDate}}
+                    ---
+                    {{/birthdayDate}}
+                </td>
+                <td>
+                    {{#country}}
+                    {{country}}
+                    {{/country}}
+                    {{#city}}
+                    {{city}}
+                    {{/city}}
+                    {{#street}}
+                    {{street}}
+                    {{/street}}
+
+                </td>
+                <td>{{placeOfWork}}</td>
+                <td class="d-none email">{{email}}</td>
+            </tr>
+            {{/.}}
+            </tbody>
+        </table>
+        <nav class="text-center">
+            <ul class="pagination justify-content-center"></ul>
+        </nav>
+    </div>
+</div>

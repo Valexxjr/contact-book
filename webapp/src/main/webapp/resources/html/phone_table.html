@@ -1,0 +1,83 @@
+<div class="container-fluid col-lg-6">
+<div class="container-fluid">
+    <div class="row">
+        <button class="btn btn-sm btn-danger pull-right" id="delete_phone">Delete</button>
+        <button class="btn btn-sm btn-success pull-right" id="add_phone">Create</button>
+    </div>
+<div class="table-responsive">
+    <table class="table table-hover" id="table_phone">
+        <thead>
+        <tr class="active">
+            <th>Check</th>
+            <th class="d-none">Id</th>
+            <th>Country code</th>
+            <th>Operator code</th>
+            <th>Number</th>
+            <th>Phone type</th>
+            <th>Note</th>
+            <th>Edit</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {{#.}}
+        <tr>
+            <td><input class="checkbox" type="checkbox"></td>
+            <td class="d-none">{{id}}</td>
+            <td class="country_code">{{countryCode}}</td>
+            <td class="operator_code">{{operatorCode}}</td>
+            <td class="number">{{number}}</td>
+            <td class="number_type">{{numberType}}</td>
+            <td class="note">{{note}}</td>
+            <td class="edit"><button>Edit</button> </td>
+        </tr>
+        {{/.}}
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+<div class="b-popup" id="form_phone">
+    <div class="b-popup-content">
+        <form role="form">
+            <input type="text" id="id" class="d-none">
+            <div class="form-group">
+                <label for="country_code" class="control-label">Country code</label>
+                <input type="text" id="country_code" class="form-control">
+                <label class="control-label d-none">Country code must be like +xxxx</label>
+            </div>
+            <div class="form-group">
+                <label for="operator_code" class="control-label">Operator code</label>
+                <input type="text" id="operator_code" class="form-control">
+                <label class="control-label d-none">Operator code should contain only digits</label>
+            </div>
+            <div class="form-group">
+                <label for="number" class="control-label">Number</label>
+                <input type="text" id="number" class="form-control">
+                <label class="control-label d-none">Number should contain only digits</label>
+            </div>
+            <div class="form-group">
+                <label>Phone type</label>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" id="radio_mobile" name="radio_number_type" value="mobile">
+                        Mobile
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" id="radio_home" name="radio_number_type" value="home">
+                        Home
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="note" class="control-label">Note</label>
+                <input type="text" id="note" class="form-control">
+                <label class="control-label d-none">Too much characters</label>
+            </div>
+            <button type="submit" class="btn-success">Add phone</button>
+            <button type="reset" class="btn-warning" onclick="hidePhoneForm()">Cancel</button>
+        </form>
+    </div>
+</div>

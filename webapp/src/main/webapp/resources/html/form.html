@@ -1,0 +1,120 @@
+<h1 class="text-center">Add/Edit Contact</h1>
+<div class="b-popup" id="form_image">
+    <div class="b-popup-content">
+        <form role="form">
+            <div class="form-group">
+                <label for="image_file">Image</label>
+                <input type="file" id="image_file" class="form-control">
+            </div>
+            <button type="submit" class="btn-success">Save</button>
+            <button type="reset" class="btn-warning">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<div class="container-fluid col-lg-2 col-md-12">
+    <div class="text-center">
+        <img id="contact_image" class="img-rounded" onclick="showImageForm()" width="50%">
+        <h4>Profile photo</h4>
+    </div>
+</div>
+<div class="container-fluid col-lg-4">
+    <form role="form" id="form_contact">
+        <input class="d-none" type="text" id="contact_id">
+        <div class="form-group">
+            <label for="first_name" class="control-label">First Name(*)</label>
+            <input type="text" id="first_name" class="form-control">
+            <label class="control-label d-none">Field cannot be empty</label>
+        </div>
+        <div class="form-group">
+            <label for="last_name" class="control-label">Last Name(*)</label>
+            <input type="text" id="last_name" class="form-control">
+            <label class="control-label d-none">Field cannot be empty</label>
+        </div>
+        <div class="form-group">
+            <label for="patronymic" class="control-label">Patronymic</label>
+            <input type="text" id="patronymic" class="form-control">
+            <label class="control-label d-none">Invalid patronymic</label>
+        </div>
+        <div class="form-group">
+            <label for="birthday_date" class="control-label">Birthday</label>
+            <input type="date" id="birthday_date" class="form-control">
+            <label class="control-label d-none">Invalid birthdate</label>
+        </div>
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio" name="radio_gender" id="radio_male" value="male">
+                    Male
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio" name="radio_gender" id="radio_female" value="female">
+                    Female
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="citizenship" class="control-label">Citizenship</label>
+            <input type="text" id="citizenship" class="form-control">
+            <label class="control-label d-none">Invalid citizenship</label>
+        </div>
+
+        <div class="form-group">
+            <label for="marital_status_select">Marital status</label>
+            <select class="form-control" id="marital_status_select">
+                <option>single</option>
+                <option>married</option>
+                <option>divorced</option>
+                <option>widowed</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="website" class="control-label">Web Site</label>
+            <input type="text" id="website" class="form-control">
+            <label class="control-label d-none">Invalid website</label>
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="control-label">Email</label>
+            <input type="email" id="email" class="form-control">
+            <label class="control-label d-none">Invalid email</label>
+        </div>
+
+        <div class="form-group">
+            <label for="place_of_work" class="control-label">Place of work</label>
+            <input type="text" id="place_of_work" class="form-control">
+            <label class="control-label d-none">Invalid place of work</label>
+        </div>
+
+        <div class="form-group">
+            <label for="country" class="control-label">Country</label>
+            <input type="text" id="country" class="form-control">
+            <label class="control-label d-none">Invalid country</label>
+        </div>
+
+        <div class="form-group">
+            <label for="city" class="control-label">City</label>
+            <input type="text" id="city" class="form-control">
+            <label class="control-label d-none">Invalid city</label>
+        </div>
+
+        <div class="form-group">
+            <label for="street" class="control-label">Street</label>
+            <input type="text" id="street" class="form-control">
+            <label class="control-label d-none">Invalid street</label>
+        </div>
+
+        <div class="form-group">
+            <label for="zip_code" class="control-label">Zip-code</label>
+            <input type="text" id="zip_code" class="form-control">
+            <label class="control-label d-none">Invalid zip-code</label>
+        </div>
+
+        <button type="reset" class="btn-error btn-lg" onclick="history.back()">Cancel</button>
+        <button type="submit" class="btn-success btn-lg">Add contact</button>
+    </form>
+</div>

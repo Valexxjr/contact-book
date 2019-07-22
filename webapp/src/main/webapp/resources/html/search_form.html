@@ -1,0 +1,79 @@
+<div class="container">
+    <h1 class="text-center">Search</h1>
+    <form role="form" id="form_search">
+        <div class="col-lg-6">
+        <div class="form-group">
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="patronymic">Patronymic</label>
+            <input type="text" id="patronymic" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="date_left">Date from</label>
+            <input type="date" id="date_left" class="form-control">
+            <label for="date_right">Date to</label>
+            <input type="date" id="date_right" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio" name="radio_gender" id="radio_male" value="male">
+                    Male
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio" name="radio_gender" id="radio_female" value="female">
+                    Female
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="citizenship">Citizenship</label>
+            <input type="text" id="citizenship" class="form-control">
+        </div>
+        </div>
+        <div class="col-lg-6">
+        <div class="form-group">
+            <label for="marital_status_select">Marital status</label>
+            <select class="form-control" id="marital_status_select">
+                <option disabled selected value></option>
+                <option>single</option>
+                <option>married</option>
+                <option>divorced</option>
+                <option>widowed</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" id="country" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="street">Street</label>
+            <input type="text" id="street" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="zip_code">Zip-code</label>
+            <input type="text" id="zip_code" class="form-control">
+        </div>
+
+        <button type="submit" class="btn-info btn-lg">Search</button>
+        </div>
+    </form>
+</div>
